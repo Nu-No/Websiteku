@@ -1,0 +1,167 @@
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-item {
+  margin: 0 15px;
+}
+
+.navbar-link {
+  color: var(--dark-color);
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+}
+
+.navbar-link:hover {
+  color: var(--primary-color);
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar-link:hover::after,
+.navbar-link.active::after {
+  width: 100%;
+}
+
+.navbar-link.active {
+  color: var(--primary-color);
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+.navbar-cta {
+  margin-left: 15px;
+}
+
+/* Admin Link Styles */
+.navbar-admin {
+  margin-left: 10px;
+}
+
+.admin-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(26, 115, 232, 0.1);
+  color: var(--primary-color) !important;
+  transition: all 0.3s ease;
+}
+
+.admin-link:hover {
+  background-color: var(--primary-color);
+  color: white !important;
+  transform: scale(1.1);
+}
+
+.admin-link i {
+  font-size: 16px;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 30px;
+    transition: left 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.active {
+    left: 0;
+  }
+
+  .navbar-item {
+    margin: 15px 0;
+  }
+
+  .navbar-cta {
+    margin: 20px 0 0 0;
+  }
+  
+  .navbar-admin {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  .admin-link {
+    width: 100%;
+    height: 45px;
+    border-radius: 4px;
+    justify-content: flex-start;
+    padding-left: 15px;
+  }
+  
+  .admin-link::after {
+    content: " Admin";
+    margin-left: 10px;
+  }
+}
